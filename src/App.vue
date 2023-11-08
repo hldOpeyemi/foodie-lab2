@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <my-header></my-header>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import myHeader from "./components/MyHeader.vue"
 
 export default {
   name: 'App',
+  props: {
+    //msg: String
+  },
   components: {
-    HelloWorld
+    "my-header": myHeader
   }
 }
 </script>
@@ -22,7 +25,23 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #4d5053;
+  
+}
+
+body {
+  background-color: rgb(204, 195, 176);
+}
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #234064;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
