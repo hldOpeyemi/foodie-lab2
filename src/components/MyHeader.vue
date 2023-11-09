@@ -3,15 +3,25 @@
     <div>
       <ul>
         <Strong>
-        <li>
+
+        <router-link  to="/">
+          <li>
           Home
-        </li>
-        <li>
+          </li>
+        </router-link>
+        
+        <router-link  to="/restaurants">
+          <li>
           Restaurants
-        </li>
-        <li>
+          </li>
+        </router-link>
+        
+        <router-link  to="/client_signup"  >
+          <li>
           Signup
-        </li>
+          </li>
+        </router-link>
+        
       </Strong>
       </ul>
     </div>

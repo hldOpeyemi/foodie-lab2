@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h1{
   background-color: rgb(82, 102, 163);
 }

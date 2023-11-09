@@ -58,11 +58,24 @@ data: function() {
 created: function() {
 
 },
-mounted() {
-  this.$router = this.$router.bind(this)
-},
+//mounted() {
+  //this.$router = this.$router.bind(this)
+//},
 
 methods: {
+
+  success(response) {
+      console.log(response);
+      if (response.status === 201) {
+        VueCookies.set("token", response.data.token)
+        this.$router.push("/restaurants")
+      }
+    },
+  
+    failure(response) {
+      console.log(response)
+    },
+
   signupClients() {
     // event.preventDefault();
     let body = {
@@ -89,21 +102,7 @@ methods: {
     // URL -> Parameter 1 of the .post function
     // BODY -> Parameter 2 of the .post function
     // OPTINS -> Parameter 2 of the .post function
-    axios.post(url,body,options).then(success).catch(failure)
-    
-    
-    function success(response) {
-      console.log(response);
-      if (response.status === 201) {
-        VueCookies.set("token", response.data.token)
-        this.$router.push("/restaurants")
-      }
-    }
-    
-    function failure(response) {
-      console.log(response)
-    }
-    
+    axios.post(url,body,options).then(this.success).catch(this.failure)    
 
   }
 
@@ -144,5 +143,13 @@ input {
   box-sizing: border-box;
   border: #aaa;
   border-bottom: 1px solid #ddd;
+}
+button {
+  width: 50%;
+  color: #555;
+  padding: 10px 6px;
+  margin: 25px 50px 15px;
+  display: inline-block;
+
 }
 </style>
