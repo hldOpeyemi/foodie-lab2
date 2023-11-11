@@ -5,6 +5,9 @@ import AboutView from '../views/AboutView.vue'
 import ClientSignup from '../views/ClientSignup.vue'
 import ClientLogin from '../views/ClientLogin.vue'
 import RestaurantsView from '../views/RestaurantsView.vue'
+import RestaurantSignup from '../views/RestaurantSignup.vue'
+import RestaurantView from '../views/RestaurantView.vue'
+import ClientDashboard from '../views/ClientDashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -33,7 +36,22 @@ const routes = [
     path: '/restaurants',
     name: 'restaurants',
     component: RestaurantsView
-  }
+  },
+  {
+    path: '/restaurant_signup',
+    name: 'restaurant_signup',
+    component: RestaurantSignup
+  },
+  {
+    path: '/restaurant',
+    name: 'restaurant',
+    component: RestaurantView
+  },
+  {
+    path: '/client_dashboard',
+    name: 'client_dashboard',
+    component: ClientDashboard
+  },
 ]
 
 const router = new VueRouter({

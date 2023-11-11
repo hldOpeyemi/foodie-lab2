@@ -5,7 +5,11 @@
       <div v-for="restaurant in restaurants" :key="restaurant.id" id="theplaces">
         <h3>{{ restaurant.name }}</h3>
         <h4>{{ restaurant.address }}</h4>
-        <button>Go here</button>
+        <img :src="restaurant.profile_url" alt="Restaurant picture"/>
+        <router-link :to="'restaurant?restaurant_id='+ restaurant.restaurant_id">
+          <button>Go here</button>
+        </router-link>
+        
       </div>
   </div>
 
@@ -19,7 +23,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'AboutView',
+  name: 'RestaurantView',
   components: {
    // HelloWorld
   },

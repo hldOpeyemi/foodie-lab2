@@ -21,6 +21,12 @@
           Signup
           </li>
         </router-link>
+
+        <router-link  to="/client_dashboard">
+          <li>
+          Client Dashboard
+          </li>
+        </router-link>
         
       </Strong>
       </ul>
