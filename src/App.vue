@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,8 +30,8 @@ export default {
 }
 
 body {
-  background-color: rgb(204, 195, 176);
-}
+  background-color: rgb(122, 99, 48);
+ }
 nav {
   padding: 30px;
 }

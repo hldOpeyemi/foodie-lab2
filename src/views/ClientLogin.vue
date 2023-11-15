@@ -37,7 +37,7 @@ export default {
       console.log("SUCCESS", response)
       if (response.status === 201) {
         VueCookies.set("token", response.data.token)
-        this.$router.push("/")
+        this.$router.push("/restaurants")
           }
         },
     

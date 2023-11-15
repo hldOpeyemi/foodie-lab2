@@ -9,25 +9,7 @@
           Home
           </li>
         </router-link>
-        
-        <router-link  to="/restaurants">
-          <li>
-          Restaurants
-          </li>
-        </router-link>
-        
-        <router-link  to="/client_signup"  >
-          <li>
-          Signup
-          </li>
-        </router-link>
-
-        <router-link  to="/client_dashboard">
-          <li>
-          Client Dashboard
-          </li>
-        </router-link>
-        
+                
       </Strong>
       </ul>
     </div>
@@ -57,6 +39,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #6c42b9;
 }
 </style>

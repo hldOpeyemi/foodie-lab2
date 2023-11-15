@@ -115,7 +115,7 @@ methods: {
 
 </script>
 
-<style>
+<style scoped>
 
 
 form {

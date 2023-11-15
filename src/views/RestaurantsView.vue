@@ -1,6 +1,22 @@
 <template>
   <div class="about">
-    <h1> Restaurants </h1>  
+    <h1> Restaurants </h1>
+    
+    <span id="links">
+      
+      <router-link  to="/client_dashboard">
+        <li>
+        Foodies
+        </li>
+      </router-link>
+
+      <router-link  to="/client_login">
+        <li>
+        Sign in
+        </li>
+      </router-link>
+      
+    </span>
     
       <div v-for="restaurant in restaurants" :key="restaurant.id" id="theplaces">
         <h3>{{ restaurant.name }}</h3>
@@ -87,6 +103,15 @@ button {
   padding: 10px 6px;
   margin: 25px 50px ;
 }
-
+li {
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  border-style: dotted;
+  border-color: beige;
+  border-radius: 20px;
+  color: rgb(77, 67, 86);
+  background-color: rgb(215, 183, 152);
+}
 
 </style>

@@ -8,6 +8,9 @@ import RestaurantsView from '../views/RestaurantsView.vue'
 import RestaurantSignup from '../views/RestaurantSignup.vue'
 import RestaurantView from '../views/RestaurantView.vue'
 import ClientDashboard from '../views/ClientDashboard.vue'
+import RestaurantDashboard from '../views/RestaurantDashboard.vue'
+import Cart from '../views/Cart.vue'
+import RestaurantLogin from '../views/RestaurantLogin.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +55,21 @@ const routes = [
     name: 'client_dashboard',
     component: ClientDashboard
   },
+  {
+    path: '/restaurant_dashboard',
+    name: 'restaurant_dashboard',
+    component: RestaurantDashboard
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Cart
+  },
+  {
+    path: '/restaurant_login',
+    name: 'restaurant_login',
+    component: RestaurantLogin
+  },
 ]
 
 const router = new VueRouter({
@@ -61,3 +79,4 @@ const router = new VueRouter({
 })
 
 export default router
+
