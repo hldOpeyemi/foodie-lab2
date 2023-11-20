@@ -16,13 +16,28 @@
             </li>
         </router-link>
 
-        <router-link  to="/Menu_dashboard">
+        <router-link  to="/Menu">
             <li>
             Menu
             </li>
         </router-link>
 
      </div>
+
+     <article v-for="menuItem in menu" :key="menuItem.id">
+        <ul>
+          <div id="menulist"> 
+            <li>
+                <h5>{{menuItem.name}}</h5>
+                <img :src="menuItem.image_url" alt="Menu_Image" class="images"/>
+                <button v-on:click="goToDish(menuItem.id)">Edit Menu</button>
+                
+             </li>
+
+             
+          </div>
+        </ul>
+      </article>
 
      
 
@@ -46,7 +61,6 @@ export default {
       menu: [],
      }
   },
-
   created: function() {
     const token = VueCookies.get("token")
     if (!token) {
@@ -60,6 +74,11 @@ export default {
   }, 
 
   methods : {
+    goToDish(id) {
+        console.log(id)
+        const restaurant_id = VueCookies.get("restaurant_id")
+        this.$router.push(`/edit_dish?menu_id=${id}&restaurant_id=${restaurant_id}`)
+     },
   
      getRestaurant() {
       const restaurant_id = VueCookies.get("restaurant_id")
@@ -104,7 +123,7 @@ export default {
       
     const url = `https://foodie.bymoen.codes/api/menu?restaurant_id=${restaurant_id}`
     
-    axios.get(url,options).then(this.success).catch(this.failure)},
+    axios.get(url,options).then(this.menuSuccess).catch(this.menuFailure)},
 
     menuSuccess(response) {
       console.log("Menu SUCCESS", response)
@@ -143,6 +162,15 @@ li {
   border-radius: 20px;
   color: rgb(77, 67, 86);
   background-color: rgb(215, 183, 152);
+}
+
+.images {
+  width: 200px;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 

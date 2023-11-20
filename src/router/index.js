@@ -11,6 +11,8 @@ import ClientDashboard from '../views/ClientDashboard.vue'
 import RestaurantDashboard from '../views/RestaurantDashboard.vue'
 import Cart from '../views/Cart.vue'
 import RestaurantLogin from '../views/RestaurantLogin.vue'
+import Menu from '../views/Menu.vue'
+import EditDish from '../views/EditDish.vue'
 
 Vue.use(VueRouter)
 
@@ -69,6 +71,16 @@ const routes = [
     path: '/restaurant_login',
     name: 'restaurant_login',
     component: RestaurantLogin
+  },
+  {
+    path: '/menu',
+    name: 'menu',
+    component: Menu
+  },
+  {
+    path: '/edit_dish',
+    name: 'edit_dish',
+    component: EditDish
   },
 ]
 

@@ -9,11 +9,11 @@
     </div> 
 
     <article v-for="menuItem in menu" :key="menuItem.id">
-    <h1>{{menuItem.name}}</h1>
-    <h1>{{menuItem.description}}</h1>
-    <h1>{{menuItem.price}}</h1>
-    <img :src="menuItem.image_url" alt="Menu_Image" class="images"/>
-    <button v-on:click="addToCart(menuItem)"> Order me!</button>
+      <h1>{{menuItem.name}}</h1>
+      <h1>{{menuItem.description}}</h1>
+      <h1>{{menuItem.price}}</h1>
+      <img :src="menuItem.image_url" alt="Menu_Image" class="images"/>
+      <button v-on:click="addToCart(menuItem)"> Order me!</button>
     </article>
 
     <router-link  to="/cart">
