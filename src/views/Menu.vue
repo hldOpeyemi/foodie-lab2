@@ -13,7 +13,7 @@
         <div id="links">
             <router-link  to="/restaurant_dashboard">
                 <li>
-                Restaurant Homepage
+                My Restaurant
                 </li>
             </router-link>
 

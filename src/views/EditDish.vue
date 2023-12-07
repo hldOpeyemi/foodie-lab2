@@ -16,7 +16,7 @@
       <label>Picture url</label>
       <input v-model="dish.image_url" type="text" />
       <button v-on:click="saveChange">Save</button>
-      <button v-on:click="deleteDish">Delete</button>
+     
     </div>
 
   </div>
@@ -54,7 +54,7 @@ export default {
       this.patchDish()
     },
     setPage() {
-      console.log(this.$route.query)
+      // console.log(this.$route.query)
       const menuId = this.$route.query.menu_id
       this.menuId = menuId
       const restaurantId = this.$route.query.restaurant_id
@@ -88,10 +88,10 @@ export default {
       }
 
     
-      console.log(this.dish)
+     
       
     
-      console.log(this.dish)
+      // console.log(this.dish)
 
       const options = {
         headers: headers
@@ -110,37 +110,37 @@ export default {
       console.log("Patch FAILURE", response)
     },
 
-    deleteDish() {
-      // DO THE AXIOS DELETE with the this.dash
+    // deleteDish() {
+    //   // DO THE AXIOS DELETE with the this.dash
 
-      const token = VueCookies.get("token")
+    //   const token = VueCookies.get("token")
 
-      const headers = {
-        "x-api-key": "xldxOub6XfltqnJDAbVl",
-        "Content-Type": "application/json",
-        "token": token
-      }
+    //   const headers = {
+    //     "x-api-key": "xldxOub6XfltqnJDAbVl",
+    //     "Content-Type": "application/json",
+    //     "token": token
+    //   }
 
-      const body = {
-        "menu_id": this.dish.id
-      }
+    //   const body = {
+    //     "menu_id": this.dish.id
+    //   }
 
-      const options = {
-        headers: headers
-      }
+    //   const options = {
+    //     headers: headers
+    //   }
 
-      const url = `https://foodie.bymoen.codes/api/menu`
+    //   const url = `https://foodie.bymoen.codes/api/menu`
 
-      axios.delete(url, body, options).then(this.dishSuccess).catch(this.dishFailure)
-    },
+    //   axios.delete(url, body, options).then(this.dishSuccess).catch(this.dishFailure)
+    // },
 
-    dishSuccess(response) {
-      console.log("dish SUCCESS", response)
-    },
+    // dishSuccess(response) {
+    //   console.log("dish SUCCESS", response)
+    // },
 
-    dishFailureFailure(response) {
-      console.log("dish FAILURE", response)
-    },
+    // dishFailureFailure(response) {
+    //   console.log("dish FAILURE", response)
+    // },
 
 
     getMenu: function (restaurant_id) {

@@ -1,6 +1,14 @@
 <template>
   <div class="clientlogin">
     <h1> Client Log in </h1> 
+
+    <div id="links">
+        <router-link  to="/client_signup">
+            <li>
+            To signup as a foodie click here
+            </li>
+        </router-link>
+      </div>
        
     <form v-on:submit.prevent="clientLogin">
       <label>email</label>
@@ -71,8 +79,21 @@ export default {
 </script>
 
 <style scoped>
-h1{
-  background-color: rgb(82, 102, 163);
+
+nav {
+  display: inline-block;
 }
+
+li {
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  border-style: dotted;
+  border-color: beige;
+  border-radius: 20px;
+  color: rgb(77, 67, 86);
+  background-color: rgb(215, 183, 152);
+}
+
 </style>
 

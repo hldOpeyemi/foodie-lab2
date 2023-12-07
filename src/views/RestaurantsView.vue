@@ -1,30 +1,33 @@
 <template>
   <div class="about">
     <h1> Restaurants </h1>
-    
-    <span id="links">
-      
-      <router-link  to="/client_dashboard">
-        <li>
-        Foodies
-        </li>
-      </router-link>
+    <div> 
+      <span id="links">
+         <router-link  to="/client_dashboard">
+           <li class="router">
+              Foodies
+           </li>
+        </router-link>
 
-      <router-link  to="/client_login">
-        <li>
-        Sign in
-        </li>
-      </router-link>
-      
-    </span>
+        <router-link  to="/client_login">
+            <li class="router">
+              Sign in
+            </li>
+        </router-link>
+      </span>
+    </div>
     
       <div v-for="restaurant in restaurants" :key="restaurant.id" id="theplaces">
-        <h3>{{ restaurant.name }}</h3>
-        <h4>{{ restaurant.address }}</h4>
-        <img :src="restaurant.profile_url" alt="Restaurant picture"/>
-        <router-link :to="'restaurant?restaurant_id='+ restaurant.restaurant_id">
-          <button>Go here</button>
-        </router-link>
+        <ul>
+          <li class="restaurants">
+              <h3>{{ restaurant.name }}</h3>
+              <h4>{{ restaurant.address }}</h4>
+              <img :src="restaurant.profile_url" alt="Restaurant picture"/>
+              <router-link :to="'restaurant?restaurant_id='+ restaurant.restaurant_id">
+                <button>Go here</button>
+              </router-link>
+          </li>
+        </ul>
         
       </div>
   </div>
@@ -75,9 +78,21 @@ export default {
   success(response) {
       console.log("SUCCESS", response);
 
-      const restaurants = response.data
-      
-      this.restaurants = restaurants
+      const restaurants = response.data 
+
+      function checkRestaurant(restaurant) {
+        console.log(restaurant.name )
+        return restaurant.name !== "dkaslkkd";
+      }
+
+      // With normal syntax
+      // const filterRestaurants = restaurants.filter(checkRestaurant)
+
+      const filterRestaurants = restaurants.filter((restaurant) => {
+        return restaurant.name !== "dkaslkkd";
+      })
+
+      this.restaurants = filterRestaurants
       console.log(this.restaurants)
 
     },
@@ -94,7 +109,14 @@ export default {
 
 <style scoped>
 #theplaces {
-  margin-top: 50px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+
+img {
+  width: 300px;
+  height: 200px
 }
 
 button {
@@ -103,7 +125,8 @@ button {
   padding: 10px 6px;
   margin: 25px 50px ;
 }
-li {
+
+.router {
   display: inline-block;
   padding: 20px;
   margin: 20px;
@@ -111,7 +134,16 @@ li {
   border-color: beige;
   border-radius: 20px;
   color: rgb(77, 67, 86);
-  background-color: rgb(215, 183, 152);
+  background-color: rgb(179, 173, 167);
+}
+
+.restaurants {
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  color: rgb(77, 67, 86);
+  background-color: rgb(216, 211, 208);
 }
 
 </style>

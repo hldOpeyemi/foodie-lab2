@@ -13,6 +13,8 @@ import Cart from '../views/Cart.vue'
 import RestaurantLogin from '../views/RestaurantLogin.vue'
 import Menu from '../views/Menu.vue'
 import EditDish from '../views/EditDish.vue'
+import AddDish from '../views/AddDish.vue'
+import DeleteDish from '../views/DeleteDish.vue'
 
 Vue.use(VueRouter)
 
@@ -81,6 +83,16 @@ const routes = [
     path: '/edit_dish',
     name: 'edit_dish',
     component: EditDish
+  },
+  {
+    path: '/add_dish',
+    name: 'add_dish',
+    component: AddDish
+  },
+  {
+    path: '/delete_dish',
+    name: 'delete_dish',
+    component: DeleteDish
   },
 ]
 

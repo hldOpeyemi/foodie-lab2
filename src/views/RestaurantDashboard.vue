@@ -1,44 +1,56 @@
 <template>
   <div class="home">
-    <div>
-        <h1> Restaurant Dashboard </h1>    
-    </div>
-
+    
     <div>
       <h1>{{ restaurant.name }}</h1>
       <h1>{{ restaurant.address }}</h1>
     </div>
+    <div></div>
+    <div>
+        <h1> {{ restaurant.name }} Dashboard </h1>    
+    </div>
 
     <div id="links">
         <router-link  to="/restaurants">
-            <li>
-            Restaurants
+            <li class="router">
+              Restaurants
             </li>
         </router-link>
 
         <router-link  to="/Menu">
-            <li>
-            Menu
+            <li class="router">
+              Menu
+            </li>
+        </router-link>
+
+        <router-link  to="/add_dish">
+            <li class="router">
+              Add New Dish 
             </li>
         </router-link>
 
      </div>
-
-     <article v-for="menuItem in menu" :key="menuItem.id">
-        <ul>
+     
+     <div>
+      <article v-for="menuItem in menu" :key="menuItem.id">
+        
           <div id="menulist"> 
-            <li>
+            <ul>
+              <li class="menu">
+
                 <h5>{{menuItem.name}}</h5>
+                <h5>{{menuItem.description}}</h5>
                 <img :src="menuItem.image_url" alt="Menu_Image" class="images"/>
-                <button v-on:click="goToDish(menuItem.id)">Edit Menu</button>
+                <button v-on:click="goToDish(menuItem.id)">Edit Dish</button>
                 
-             </li>
-
-             
+                
+              </li>
+            </ul>
+           
           </div>
-        </ul>
+        
       </article>
-
+    </div>
      
 
   </div>
@@ -78,6 +90,7 @@ export default {
         console.log(id)
         const restaurant_id = VueCookies.get("restaurant_id")
         this.$router.push(`/edit_dish?menu_id=${id}&restaurant_id=${restaurant_id}`)
+        
      },
   
      getRestaurant() {
@@ -153,7 +166,7 @@ export default {
   display: inline-block;
 }
 
-li {
+.router {
   display: inline-block;
   padding: 20px;
   margin: 20px;
@@ -169,8 +182,13 @@ li {
 }
 
 article {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: inline-block;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 20px;
+  color: rgb(77, 67, 86);
+  background-color: rgb(216, 211, 208);
+ 
 }
 
 
