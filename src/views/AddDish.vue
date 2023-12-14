@@ -4,7 +4,7 @@
       <h1> Add Dish </h1>    
     </div>
     <h1 v-if="message">{{ message }}</h1>
-    <div>
+    <div id="form">
       <label>Name</label>
       <input v-model="dish.name" type="text" />
 
@@ -99,6 +99,42 @@ export default {
 body {
   background-color: rgb(138, 128, 128);
   
+}
+
+#form {
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  text-align: left;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+label {
+  color: #aaa;
+  display: inline-block;
+  margin: 25px 0 15px;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+input {
+  color: #555;
+  display: block;
+  padding: 10px 6px;
+  width: 100%;
+  box-sizing: border-box;
+  border: #aaa;
+  border-bottom: 1px solid #ddd;
+}
+button {
+  width: 50%;
+  color: #555;
+  padding: 10px 6px;
+  margin: 25px 50px 15px;
+  display: inline-block;
+
 }
 
 

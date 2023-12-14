@@ -29,6 +29,12 @@
             </li>
         </router-link>
 
+        <router-link  to="/delete_dish">
+            <li class="router">
+              Delete Dish 
+            </li>
+        </router-link>
+
      </div>
      
      <div>
@@ -37,12 +43,11 @@
           <div id="menulist"> 
             <ul>
               <li class="menu">
-
+                  
                 <h5>{{menuItem.name}}</h5>
                 <h5>{{menuItem.description}}</h5>
                 <img :src="menuItem.image_url" alt="Menu_Image" class="images"/>
                 <button v-on:click="goToDish(menuItem.id)">Edit Dish</button>
-                
                 
               </li>
             </ul>
@@ -92,6 +97,8 @@ export default {
         this.$router.push(`/edit_dish?menu_id=${id}&restaurant_id=${restaurant_id}`)
         
      },
+
+    
   
      getRestaurant() {
       const restaurant_id = VueCookies.get("restaurant_id")
@@ -178,7 +185,7 @@ export default {
 }
 
 .images {
-  width: 200px;
+  width: 100px;
 }
 
 article {

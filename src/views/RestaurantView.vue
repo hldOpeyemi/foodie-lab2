@@ -1,26 +1,42 @@
 <template>
   <div>
+    <div>
+      <img :src="restaurant.profile_url" alt="Restaurant picture" class="images"/>
+    </div>
+    
+    
+
     <div class="about">
-        <h1> Restaurant </h1>  
-        <h3>{{ restaurant["name"] }}</h3>
-        <h4>{{ restaurant.address }}</h4>
-        <img :src="restaurant.profile_url" alt="Restaurant picture" class="images"/>
+        <h1>{{ restaurant["name"] }}</h1>
+        <h3>{{ restaurant.address }}</h3>
         <router-link :to="'restaurant?restaurant_id='+ restaurant.restaurant_id"/>  
     </div> 
+    
+    <div id="cart">
+      <h3 class="main-title">Choose Order</h3>
+      <router-link  to="/cart"> <h3>Cart</h3> </router-link>
+    </div>
 
-    <article v-for="menuItem in menu" :key="menuItem.id">
-      <h1>{{menuItem.name}}</h1>
-      <h1>{{menuItem.description}}</h1>
-      <h1>{{menuItem.price}}</h1>
-      <img :src="menuItem.image_url" alt="Menu_Image" class="images"/>
-      <button v-on:click="addToCart(menuItem)"> Order me!</button>
-    </article>
+    <div v-for="menuItem in menu" :key="menuItem.id" id="menuholder">
+      <ul>
+          <li class="menulist">
+            <div id="menu-desc">
+              <img :src="menuItem.image_url" alt="Menu_Image" id="dishimage"/>          
+              <h1 class="menuname">{{menuItem.name}}</h1>
+              <h3>{{menuItem.description}}</h3>
+              <h1>${{menuItem.price}}.00</h1>
+              <button v-on:click="addToCart(menuItem)"> Click to Order</button>
+              
+            </div>
+          </li>
 
-    <router-link  to="/cart">
-            <li>
-           Cart
-            </li>
-          </router-link>
+      </ul>
+     
+  
+    </div>
+  
+
+    
 
   </div>
 
@@ -110,7 +126,8 @@ export default {
       VueCookies.set("cart", JSON.stringify(this.cart))
       const cookies = this.$cookies.get("cart")
       console.log(cookies)
-    }
+    },
+
 
   },
 
@@ -125,9 +142,70 @@ export default {
 </script>
 
 <style scoped>
-.images {
-  width: 200px;
+
+#menuholder {
+  margin-top: 20px;
+  display: inline-block;
 }
 
+.menulist {
+  display: grid;
+  padding: 20px;
+  width: 400px;
+  height: 600px;
+  margin: 20px;
+  border-radius: 20px;
+  color: rgb(77, 67, 86);
+  background-color: rgb(216, 211, 208);
+}
+
+#dishimage {
+  width: 200px;
+  height: 200px
+
+}
+
+/* .menuwrapper {
+  display: inline-block;
+  width: 30%;
+  margin-top: 1rem;
+  gap: 2%;
+  border-radius: 8px;
+}
+
+#menudetails {
+  min-height: 200px;
+  height: 100%;
+  background-color: aqua;
+  border-radius: 8px;
+  margin: 1% 0;
+  box-sizing: green 0px 2px 8px 0px;
+  cursor: pointer;
+}
+
+#dishimage {
+  width: 20%;
+  height:180px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+  filter:brightness(0.8)
+}
+
+/* #menu-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3%;
+  width: 100%
+} */
+
+.images {
+  width: 200px
+}
+
+/* #menu-name {
+  display: grid;
+} */
 
 </style>

@@ -126,6 +126,7 @@ form {
   padding: 40px;
   border-radius: 10px;
 }
+
 label {
   color: #aaa;
   display: inline-block;
